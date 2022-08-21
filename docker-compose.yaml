@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis
+    restart: always
+
+  test:
+    restart: always
+    build:
+      context: ./test
+    ports: ["8000:8000"]
+    command: [ "python3", "./ticket/manage.py", "runserver", "0.0.0.0:8000"]
+
+  worker:
+    restart: always
+    build:
+      context: ./test
+    command: ['celery', '--workdir=./ticket', '-A', 'ticket', 'worker']
+
