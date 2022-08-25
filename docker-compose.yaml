@@ -18,3 +18,8 @@ services:
       context: ./test
     command: ['celery', '--workdir=./ticket', '-A', 'ticket', 'worker']
 
+  beat:
+    restart: always
+    build:
+      context: ./test
+    command: ['celery', '--workdir=./ticket', '-A', 'ticket', 'beat']

@@ -1,5 +1,5 @@
 FROM python:3.8.10
-ENV SECRET_KEY=''
+ENV SECRET_KEY='django-insecure-o#zq!q(sgj7z8snzjhuk3ngo*e7ew83*y^0nk*jidfmd(1&09+'
 
 
 WORKDIR /test
